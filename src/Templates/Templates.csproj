@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" />
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <Title>Vio Dotnet Templates</Title>
+    <Description>Contains some helper dotnet templates for use with `dotnet new`</Description>
+    <PackageTags>dotnet-new;templates</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <EnableAnalyzers>false</EnableAnalyzers>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+<Project>
+
+  <!-- Global -->
+  <ItemGroup>
+    <GlobalPackageReference Include="Nerdbank.GitVersioning" Version="3.1.91" Condition="'$(EnableGitVersioning)' != 'false'" />
+    <GlobalPackageReference Include="StyleCop.Analyzers" Version="1.1.118" Condition="'$(EnableAnalyzers)' != 'false'" />
+    <GlobalPackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0" Condition="'$(EnableAnalyzers)' != 'false'" />
+  </ItemGroup>
+
+</Project>

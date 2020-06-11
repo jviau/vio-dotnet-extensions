@@ -1,0 +1,16 @@
+<Project>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <EnableAnalyzers>false</EnableAnalyzers>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutput>$(OutRoot)TestResults/$(MSBuildProjectName)/</CoverletOutput>
+    <CoverletOutputFormat>lcov</CoverletOutputFormat>
+    <VSTestResultsDirectory>$(OutRoot)TestResults/</VSTestResultsDirectory>
+  </PropertyGroup>
+
+</Project>

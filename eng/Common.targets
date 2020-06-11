@@ -1,0 +1,23 @@
+<Project>
+
+  <ItemGroup>
+    <None Update="**/appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="**/appsettings.*.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(EnableAnalyzers)' == 'true'">
+    <AdditionalFiles Include="$(EngRoot)stylecop.json" Visible="false" />
+  </ItemGroup>
+
+  <Target Name="GetReleaseNotes" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <PackageReleaseNotes>$([System.IO.File]::ReadAllText('$(RepoRoot)releasenotes.md'))</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
+
+</Project>

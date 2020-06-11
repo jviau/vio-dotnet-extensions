@@ -1,0 +1,29 @@
+<Project>
+
+  <PropertyGroup>
+    <LangVersion>$(ProjectLanguageVersion)</LangVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableAnalyzers>true</EnableAnalyzers>
+    <CodeAnalysisRuleSet>$(EngRoot)Analyzers.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TopLevelNamespace Condition="'$(TopLevelNamespace)' == ''">Vio.Dotnet.Repo</TopLevelNamespace>
+    <AssemblyName>$(TopLevelNamespace).$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace Condition="'$(RootNamespace)' == ''">$(MSBuildProjectName)</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>$(ProjectAuthor)</Authors>
+    <Copyright>© $(ProjectAuthor). All rights reserved.</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+</Project>
