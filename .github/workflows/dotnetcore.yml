@@ -1,0 +1,73 @@
+name: .NET Core
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  release:
+    types:
+      - published
+
+env:
+  sdk: "3.1.301"
+  solution: ./src/vio.dotnet.sln
+  config: Release
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.sdk }}
+
+    - name: Restore
+      run: dotnet restore $solution
+
+    - name: Build
+      run: dotnet build $solution --configuration $config --no-restore
+
+    # Currently no tests to run
+    # - name: Test
+    #   run: dotnet test $solution --configuration $config --no-build
+
+    - name: Pack
+      run: dotnet pack $solution --configuration $config --no-build
+
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      with:
+        name: pkg
+        path: ./out/pkg
+
+  release:
+    needs: build
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: pkg
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.sdk }}
+
+    - name: Push Nuget
+      env:
+        NUGET_API: ${{ secrets.NUGET_API }}
+      run: dotnet nuget push pkg/**/*.nupkg
+            --api-key $NUGET_API
+            --source https://api.nuget.org/v3/index.json
