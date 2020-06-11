@@ -1,4 +1,7 @@
-<Project>
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--#if (!skipCentralPackages) -->
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" />
+  <!--#endif -->
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>

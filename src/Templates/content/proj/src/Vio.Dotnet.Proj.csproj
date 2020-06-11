@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--#if (!skipCentralPackages) -->
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" />
+  <!--#endif -->
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

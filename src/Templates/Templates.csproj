@@ -6,17 +6,25 @@
     <Title>Vio Dotnet Templates</Title>
     <Description>Contains some helper dotnet templates for use with `dotnet new`</Description>
     <PackageTags>dotnet-new;templates</PackageTags>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <EnableAnalyzers>false</EnableAnalyzers>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeSource>false</IncludeSource>
     <ContentTargetFolders>content</ContentTargetFolders>
-    <EnableAnalyzers>false</EnableAnalyzers>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <NoDefaultExcludes>true</NoDefaultExcludes>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <SuppressDependenciesWhenPackaging>true</SuppressDependenciesWhenPackaging>
+    <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <PackageReference Remove="Microsoft.NETCore.App" />
+    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**">
+      <PackagePath>content</PackagePath>
+    </Content>
     <Compile Remove="**\*" />
   </ItemGroup>
 

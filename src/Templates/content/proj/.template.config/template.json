@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Jacob Viau",
+  "classifications": [ "Console", "Classlib", "Xunit", "Test" ], 
+  "name": "Source and Test Project",
+  "identity": "Vio.Dotnet.Templates.Proj",
+  "groupIdentity":"Vio.Dotnet.Templates.Proj",
+  "shortName": "proj",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Vio.Dotnet.Proj",
+  "preferNameDirectory": true,
+  "symbols":{
+    "framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "netcoreapp3.1",
+          "description": "Target netcoreapp3.1"
+        },
+        {
+          "choice": "netstandard2.1",
+          "description": "Target netstandard2.1"
+        },
+        {
+          "choice": "netstandard2.0",
+          "description": "Target netstandard2.0"
+        }
+      ],
+      "replaces": "netstandard2.1",
+      "defaultValue": "netstandard2.1"
+    },
+    "skipCentralPackages": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If false, skips Microsoft.Build.CentralPackageVersions sdk",
+      "defaultValue": "false"
+    }
+  }
+}
