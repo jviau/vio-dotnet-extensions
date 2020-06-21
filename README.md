@@ -14,13 +14,17 @@ Item template for generating a simple C# class. Does not poplate namespace or pe
 
 Project template for generating a `src` and `test` project tuple.
 
-**Usage**: `dotnet new proj -n ProjectName`
+**Usage**: `dotnet new proj -n ProjectName -o OutputFolder`
 
 **Outputs**: Two projects, a classlib at `src/ProjectName.csproj` and a xunit test project at `test/ProjectName.Tests.csproj`
 
 ## Vio.Dotnet.Templates.Repo
 
-Project (repo) template for scaffolding out a new C# repo structure. Includes:
+Project (repo) template for scaffolding out a new C# repo structure. 
+
+**Usage**: `dotnet new repo -n RepoName -o OutputFolder`
+
+**Outputs**:
 
 - .gitignore
 - .editorconfig
