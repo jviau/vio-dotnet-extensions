@@ -20,7 +20,7 @@ Project template for generating a `src` and `test` project tuple.
 
 ## Vio.Dotnet.Templates.Repo
 
-Project (repo) template for scaffolding out a new C# repo structure. 
+Project (repo) template for scaffolding out a new C# repo structure.
 
 **Usage**: `dotnet new repo -n RepoName -o OutputFolder`
 
